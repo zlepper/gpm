@@ -45,7 +45,7 @@ Here is a table of all the possible options per process.
 |`name`|This is the name of the process, used when resolving dependencies, and for writing to the log.|Yes|
 |`command`|This is the actual terminal command to run. Write here exactly like you would on your normal terminal. Does not support piping between processes.|Yes|
 |`autoRestart`|Set to true to have the process automatically be restarted when it closes. Mutually exclusive with `after`|No|
-|`after`|The name of this process,**this**process should be run after. Mutually exclusive with `autoRestart`|No|
+|`after`|The name of this process, **this** process should be run after. Mutually exclusive with `autoRestart`|No|
 
 A more involved example:
 ```json

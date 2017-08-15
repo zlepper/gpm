@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"flag"
+	"github.com/zlepper/gpm/internal"
 	"log"
 	"os"
 	"os/signal"
@@ -14,6 +15,7 @@ func main() {
 
 	flag.Parse()
 
+	log.Printf("GPM version %s\n", internal.VERSION)
 	pm := NewProcessManager()
 	err = pm.ParseConfigFile(*configPath)
 	if err != nil {

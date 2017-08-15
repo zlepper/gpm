@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/zlepper/gpm/internal"
 	"log"
 	"os"
 	"os/exec"
@@ -67,7 +68,7 @@ func main() {
 					goBinary,
 					"build",
 					"-o",
-					fmt.Sprintf("build/gpm-%s", conf.Extension),
+					fmt.Sprintf("build/gpm-%s-%s", internal.VERSION, conf.Extension),
 					"github.com/zlepper/gpm",
 				},
 				Env: append(

@@ -39,6 +39,7 @@ An extremely simply configuration file, that just runs an echo command once look
 ```
 
 Here is a table of all the possible options per process.
+
 |Key|Description|Required|
 |------|-----|------|
 |`name`|This is the name of the process, used when resolving dependencies, and for writing to the log.|Yes|
@@ -73,7 +74,7 @@ A more involved example:
 ```
 
 This starts a single echo process that write `'this is a test'` to the terminal. 
-Then it starts a (GFS)[https://github.com/zlepper/gfs] process. 
+Then it starts a [GFS](https://github.com/zlepper/gfs) process. 
 At the same time another echo process is started, writing `'this is echo 2'` to the terminal.
 Then yet another echo process start, that write `'this is echo 3'` to the terminal.
 

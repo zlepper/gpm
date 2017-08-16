@@ -47,7 +47,7 @@ func Tokenize(s string) (tokens []string) {
 	hasQuote := false
 	// True if the next char should be treated as a literal
 	escapeNext := false
-	for _, char := range s {
+	for index, char := range s {
 		if escapeNext {
 			token += string(char)
 			escapeNext = false
@@ -65,8 +65,13 @@ func Tokenize(s string) (tokens []string) {
 		}
 
 		if char == '\\' {
-			escapeNext = true
-			continue
+			if index+1 < len(s) {
+				nextChar := s[index+1]
+				if nextChar == ' ' || nextChar == '"' {
+					escapeNext = true
+					continue
+				}
+			}
 		}
 
 		if char == ' ' {

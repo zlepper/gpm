@@ -6,8 +6,8 @@ import (
 )
 
 func TestTokenize(t *testing.T) {
-	s := `gfs --config=/foo/var --serve=\"/bar\ baz/foo\" -d /var\ foo "var foo"`
-	expected := []string{`gfs`, `--config=/foo/var`, `--serve="/bar baz/foo"`, "-d", "/var foo", "var foo"}
+	s := `gfs --config=/foo/var --serve=\"/bar\ baz/foo\" -d /var\ foo "var foo" C:\this\is\test`
+	expected := []string{`gfs`, `--config=/foo/var`, `--serve="/bar baz/foo"`, "-d", "/var foo", "var foo", `C:\this\is\test`}
 
 	actual := Tokenize(s)
 

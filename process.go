@@ -24,6 +24,8 @@ type Process struct {
 	Before []*Process
 	// The name of the process, this process should run after
 	after string
+	// The name of the directory the process should be run in
+	WorkingDirectory string
 }
 
 func (p *Process) restart(ctx context.Context) (err error) {
@@ -47,6 +49,7 @@ func (p *Process) Run(ctx context.Context) error {
 	}
 
 	cmd := exec.Command(command, p.Args...)
+	cmd.Dir = p.WorkingDirectory
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Env = os.Environ()

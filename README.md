@@ -46,6 +46,7 @@ Here is a table of all the possible options per process.
 |`command`|This is the actual terminal command to run. Write here exactly like you would on your normal terminal. Does not support piping between processes.|Yes|
 |`autoRestart`|Set to true to have the process automatically be restarted when it closes. Mutually exclusive with `after`|No|
 |`after`|The name of the process, **this** process should be run after. Mutually exclusive with `autoRestart`|No|
+|`workDir`|The working directory of the process when executed|No|
 
 A more involved example:
 ```json

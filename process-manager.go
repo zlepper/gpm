@@ -10,10 +10,11 @@ import (
 )
 
 type processJson struct {
-	Name        string `json:"name"`
-	Command     string `json:"command"`
-	AutoRestart bool   `json:"autoRestart"`
-	After       string `json:"after"`
+	Name             string `json:"name"`
+	Command          string `json:"command"`
+	AutoRestart      bool   `json:"autoRestart"`
+	After            string `json:"after"`
+	WorkingDirectory string `json:"workDir"`
 }
 
 // The main process manager, managing processes
@@ -104,6 +105,11 @@ func (p *ProcessManager) buildOneProcess(pj *processJson) (*Process, error) {
 	process.Command = tokens[0]
 	process.Args = tokens[1:]
 	process.after = pj.After
+	if pj.WorkingDirectory == "" {
+		process.WorkingDirectory = "."
+	} else {
+		process.WorkingDirectory = pj.WorkingDirectory
+	}
 
 	return process, nil
 }
